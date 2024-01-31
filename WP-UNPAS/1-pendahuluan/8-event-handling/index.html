@@ -17,15 +17,21 @@
 
     function HomePage() {
       const [likes, setLikes] = React.useState(0);
+      const [dislikes, setDislikes] = React.useState(0);
 
       function handleClick() {
         setLikes(likes + 1);
+      }
+
+      function clickDislike() {
+        setDislikes(dislikes + 1);
       }
 
       return (
         <div>
           <Header />
           <button onClick={handleClick}>Like ({likes})</button>
+          <button onClick={clickDislike}>Dislike ({dislikes})</button>
         </div>
       );
     }
