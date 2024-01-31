@@ -1,4 +1,4 @@
-// eslint-disable-next-line no-unused-vars
+/* eslint-disable react/prop-types */
 import { useState } from 'react'
 
 function Square({ value, onSquareClick }) {
@@ -14,12 +14,10 @@ export default function Board() {
   const [xIsNext, setXIsNext] = useState(true);
   
   function handleClick(i) {
+    if (squares[i]) return;
     const nextSquares = squares.slice();
-    if (xIsNext) {
-      nextSquares[i] = 'X';
-    } else {
-      nextSquares[i] = 'O';
-    }
+
+    nextSquares[i] = (xIsNext) ? 'X' : 'O';
     setSquares(nextSquares);
     setXIsNext(!xIsNext);
   }
