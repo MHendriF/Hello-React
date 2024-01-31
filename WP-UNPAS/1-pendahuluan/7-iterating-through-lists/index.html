@@ -16,13 +16,13 @@
       }
 
       function HomePage() {
-        const students = ['Sandhika Galih', 'Doddy Ferdiansyah', 'Erik'];
+        const students = ['Sandhika Galih', 'Doddy Ferdiansyah', 'Erik', 'Hendri'];
         return (
           <div>
             <Header />
             <ul>
               {students.map((student) => (
-                <li key={student}>{student}</li>
+                <li key={student}>{student}</li>  //add key to unique property
               ))}
             </ul>
           </div>
