@@ -19,6 +19,12 @@ const groceryItems = [
 		quantity: 3,
 		checked: false,
 	},
+	{
+		id: 4,
+		name: 'Gyunyu',
+		quantity: 4,
+		checked: false,
+	},
 ];
 
 export default function App() {
@@ -28,11 +34,15 @@ export default function App() {
 		setItems([...items, item]);
 	}
 
+	function handleDeletItem(id) {
+		setItems((items) => items.filter((item) => item.id !== id));
+	}
+
 	return (
 		<div className="app">
 			<Header />
 			<Form onAddItem={handleAddItem} />
-			<GroceryList items={items} />
+			<GroceryList items={items} onDeleteItem={handleDeletItem} />
 			<Footer />
 		
 	</div>
@@ -59,7 +69,7 @@ function Form({ onAddItem }) {
 			checked: false
 		};
 		onAddItem(newItem);
-		
+
 		console.log(newItem);
 		setName('');
 		setQuantity(1);
@@ -85,13 +95,13 @@ function Form({ onAddItem }) {
 	)
 }
 
-function GroceryList({items}) {
+function GroceryList({items, onDeleteItem}) {
 	return (
 		<>
 			<div className="list">
 				<ul>
 					{items.map((item) => (
-						<Item item={item} key={item.id} />
+						<Item item={item} key={item.id} onDeleteItem={onDeleteItem} />
 					))}
 				</ul>
 			</div>
@@ -107,14 +117,14 @@ function GroceryList({items}) {
 	)
 }
 
-function Item({item}) {
+function Item({item, onDeleteItem}) {
 	return (
 		<li key={item.id}>
 			<input type="checkbox" />
 			<span style={item.checked ? { textDecoration: 'line-through' } : {}}>
 				{item.quantity} {item.name}
 			</span>
-			<button>&times;</button>
+			<button onClick={() => onDeleteItem(item.id)}>&times;</button>
 		</li>
 	)
 }
