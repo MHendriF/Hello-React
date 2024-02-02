@@ -1,7 +1,7 @@
-export default function NumResult() {
+export default function NumResult({animes}) {
     return (
         <p className="search-results">
-            Found <strong>4</strong> results
+            Found <strong>{animes.length}</strong> results
         </p>
     );
 }
