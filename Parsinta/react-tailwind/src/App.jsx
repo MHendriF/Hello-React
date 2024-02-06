@@ -1,5 +1,6 @@
 import { IconBrandFacebook, IconBrandTwitter } from '@tabler/icons-react';
-import clsx from 'clsx';
+
+import Button from './components/Button';
 
 export default function App() {
     return (
@@ -36,16 +37,3 @@ const Title = () => (
         <h1>Title 2</h1>
     </>
 );
-
-function Button(props) {
-    const { className = 'bg-blue-600', children, text, type = 'submit' } = props;
-
-    return (
-        <button
-            {...props}
-            type={type}
-            className={clsx(className, '[&>svg]:w-5 [&>svg]:h-5 [&>svg]:stroke-1 flex items-center gap-x-2 text-white px-4 py-2 rounded')}>
-            {text || children}
-        </button>
-    );
-}
