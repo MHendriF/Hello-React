@@ -7,8 +7,17 @@ import Counter from './components/Counter';
 import Input from './components/Input';
 import Label from './components/Label';
 import { useState } from 'react';
+import Todo from './components/Todo';
 
 export default function App() {
+    return (
+        <PlaceContentCenter>
+            <Todo></Todo>
+        </PlaceContentCenter>
+    );
+}
+
+function AppForm() {
     const [form, setForm] = useState({
         name: '',
         email: '',
