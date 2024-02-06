@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import PlaceContentCenter from './PlaceContentCenter';
 import Input from './Input';
 import Button from './Button';
 

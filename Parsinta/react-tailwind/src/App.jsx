@@ -1,8 +1,7 @@
-import AppToDo from './components/AppTodo';
-import AppUseEffect from './components/AppUseEffect';
+import AppAPI from './components/AppAPI';
 
 export default function App() {
-    return <AppUseEffect></AppUseEffect>;
+    return <AppAPI></AppAPI>;
 }
 
 //Penulisan menggunakan gaya ES6
