@@ -9,26 +9,15 @@ export default function App() {
                     <IconBrandFacebook />
                     Register
                 </Button>
-                <Button
-                    className='bg-pink-600'
-                    onClick={() => console.log('Register')}
-                    type='button'
-                >
+                <Button className='bg-pink-600' onClick={() => console.log('Register')} type='button'>
                     <IconBrandTwitter />
                     Login
                 </Button>
-                <Button
-                    className='bg-black'
-                    onClick={() => console.log('Register')}
-                    type='button'
-                >
+                <Button className='bg-black' onClick={() => console.log('Register')} type='button'>
                     <IconBrandTwitter />
                     Logout
                 </Button>
-                <Button
-                    className='bg-green-500'
-                    onClick={() => console.log('Register')}
-                >
+                <Button className='bg-green-500' onClick={() => console.log('Register')}>
                     <IconBrandTwitter />
                     Exit
                 </Button>
@@ -38,22 +27,13 @@ export default function App() {
 }
 
 function Button(props) {
-    const {
-        className = 'bg-blue-600',
-        children,
-        text,
-        type = 'submit',
-    } = props;
+    const { className = 'bg-blue-600', children, text, type = 'submit' } = props;
 
     return (
         <button
             {...props}
             type={type}
-            className={clsx(
-                className,
-                '[&>svg]:w-5 [&>svg]:h-5 [&>svg]:stroke-1 flex items-center gap-x-2 text-white px-4 py-2 rounded'
-            )}
-        >
+            className={clsx(className, '[&>svg]:w-5 [&>svg]:h-5 [&>svg]:stroke-1 flex items-center gap-x-2 text-white px-4 py-2 rounded')}>
             {text || children}
         </button>
     );
