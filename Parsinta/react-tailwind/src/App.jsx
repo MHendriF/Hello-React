@@ -10,6 +10,29 @@ import { useState } from 'react';
 import Todo from './components/Todo';
 
 export default function App() {
+    const [tick, setTick] = useState(0);
+
+    function handleClick() {
+        const nextTick = tick + 1;
+        setTick(nextTick);
+        console.log(nextTick);
+    }
+
+    return (
+        <PlaceContentCenter>
+            <Card>
+                <Card.Title>UseRef Hooks</Card.Title>
+                <Card.Body>
+                    <Input isFocused className='border border-slate-500'></Input>
+                    <Button onClick={handleClick}>Tick</Button>
+                </Card.Body>
+                <Card.Footer>You clicked {tick} times.</Card.Footer>
+            </Card>
+        </PlaceContentCenter>
+    );
+}
+
+function AppToDo() {
     return (
         <PlaceContentCenter>
             <Todo></Todo>
