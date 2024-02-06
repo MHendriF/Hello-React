@@ -2,8 +2,50 @@ import { IconBrandFacebook, IconBrandTwitter } from '@tabler/icons-react';
 
 import Button from './components/Button';
 import Card from './components/Card';
+import PlaceContentCenter from './components/PlaceContentCenter';
+import { useState } from 'react';
 
 export default function App() {
+    const [count, setCount] = useState(0);
+
+    function handleClick() {
+        const nextCount = count + 1;
+        setCount(nextCount);
+        console.log([count, nextCount]);
+    }
+
+    function handleClickUpdater() {
+        setCount((prevSate) => prevSate + 1);
+        console.log([count]);
+    }
+
+    return (
+        <PlaceContentCenter>
+            <h1 className='text-5xl font-bold'>{count}</h1>
+            <div className='mt-5 flex gap-x-4'>
+                <Button onClick={handleClick}>Count +1</Button>
+                <Button
+                    onClick={() => {
+                        handleClick();
+                        handleClick();
+                        handleClick();
+                    }}>
+                    Count +3
+                </Button>
+                <Button
+                    onClick={() => {
+                        handleClickUpdater();
+                        handleClickUpdater();
+                        handleClickUpdater();
+                    }}>
+                    Updater +3
+                </Button>
+            </div>
+        </PlaceContentCenter>
+    );
+}
+
+function AppComponent() {
     return (
         <div className='bg-slate-100 text-slate-800 tracking-tight antialiased flex items-center justify-center min-h-screen'>
             <div className='max-w-md w-full'>
