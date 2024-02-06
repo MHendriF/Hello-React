@@ -23,7 +23,8 @@ export default function App() {
             <Card>
                 <Card.Title>UseRef Hooks</Card.Title>
                 <Card.Body>
-                    <Input isFocused className='border border-slate-500'></Input>
+                    <Input placeholder='Email' isFocused className='border border-slate-500'></Input>
+                    <Input placeholder='Password' className='border border-slate-500'></Input>
                     <Button onClick={handleClick}>Tick</Button>
                 </Card.Body>
                 <Card.Footer>You clicked {tick} times.</Card.Footer>

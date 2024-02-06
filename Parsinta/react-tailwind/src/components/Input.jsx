@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 
+//useRef => State tidak akan dirender
 const Input = ({ isFocused = false, type = 'text', ...props }) => {
     const inputRef = useRef();
 
