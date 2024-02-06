@@ -1,4 +1,5 @@
 import { IconBrandFacebook, IconBrandTwitter } from '@tabler/icons-react';
+import clsx from 'clsx';
 
 export default function App() {
     return (
@@ -8,9 +9,21 @@ export default function App() {
                     <IconBrandFacebook />
                     Register
                 </Button>
-                <Button onClick={() => console.log('Register')} type='button'>
+                <Button
+                    className='bg-pink-600'
+                    onClick={() => console.log('Register')}
+                    type='button'
+                >
                     <IconBrandTwitter />
                     Login
+                </Button>
+                <Button
+                    className='bg-black'
+                    onClick={() => console.log('Register')}
+                    type='button'
+                >
+                    <IconBrandTwitter />
+                    Logout
                 </Button>
             </div>
         </div>
@@ -18,14 +31,15 @@ export default function App() {
 }
 
 function Button(props) {
-    const { children, text, type } = props;
+    const { className = 'bg-blue-600', children, text, type } = props;
 
     return (
         <button
             {...props}
-            className={
-                '[&>svg]:w-5 [&>svg]:h-5 [&>svg]:stroke-1 flex items-center gap-x-2 bg-blue-600 text-white px-4 py-2 rounded'
-            }
+            className={clsx(
+                className,
+                '[&>svg]:w-5 [&>svg]:h-5 [&>svg]:stroke-1 flex items-center gap-x-2 text-white px-4 py-2 rounded'
+            )}
         >
             {text || children}
         </button>
