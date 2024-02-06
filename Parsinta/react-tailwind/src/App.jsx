@@ -4,6 +4,9 @@ import clsx from 'clsx';
 export default function App() {
     return (
         <div className='bg-slate-900 grid place-content-center min-h-screen'>
+            <div className='flex text-center gap-x-4 text-cyan-50'>
+                <Title />
+            </div>
             <div className='flex gap-x-2'>
                 <Button onClick={() => console.log('Register')} type='submit'>
                     <IconBrandFacebook />
@@ -25,6 +28,14 @@ export default function App() {
         </div>
     );
 }
+
+//Penulisan menggunakan gaya ES6
+const Title = () => (
+    <>
+        <h1>Title 1</h1>
+        <h1>Title 2</h1>
+    </>
+);
 
 function Button(props) {
     const { className = 'bg-blue-600', children, text, type = 'submit' } = props;
