@@ -1,7 +1,8 @@
 import AppAPI from './components/AppAPI';
+import AppCustomHooks from './components/AppCustomHooks';
 
 export default function App() {
-    return <AppAPI></AppAPI>;
+    return <AppCustomHooks></AppCustomHooks>;
 }
 
 //Penulisan menggunakan gaya ES6
