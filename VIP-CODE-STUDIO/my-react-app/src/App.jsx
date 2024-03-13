@@ -1,35 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+class Button extends React.Component {
+    render() {
+        return (
+            <button className='h-10 px-6 font-semibold rounded-md bg-slate-700 text-white' type='submit'>
+                Buy now
+            </button>
+        );
+    }
 }
 
-export default App
+function ButtonBlack() {
+    return (
+        <button className='h-10 px-6 font-semibold rounded-md bg-black text-white' type='submit'>
+            Buy now
+        </button>
+    );
+}
+
+const ButtonRed = () => {
+    return (
+        <button className='h-10 px-6 font-semibold rounded-md bg-red-700 text-white' type='submit'>
+            Buy now
+        </button>
+    );
+};
+
+function App() {
+    return (
+        <div className='flex justify-center bg-blue-600 min-h-screen items-center'>
+            <div className='flex gap-x-3'>
+                <Button></Button>
+                <Button></Button>
+                <Button></Button>
+                <ButtonBlack></ButtonBlack>
+                <ButtonRed></ButtonRed>
+            </div>
+        </div>
+    );
+}
+
+export default App;
