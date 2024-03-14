@@ -26,13 +26,6 @@ const products = [
         image: '/images/shoes-1.jpg',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     },
-    {
-        id: 4,
-        name: 'Sepatu lama',
-        price: 500000,
-        image: '/images/shoes-1.jpg',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-    },
 ];
 
 const email = localStorage.getItem('email');
@@ -103,6 +96,9 @@ const ProductsPage = () => {
                         </tbody>
                     </table>
                 </div>
+            </div>
+            <div className='flex mt-5 mb-5 justify-center'>
+                <Counter></Counter>
             </div>
         </Fragment>
     );
