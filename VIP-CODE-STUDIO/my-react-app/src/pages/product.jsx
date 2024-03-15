@@ -1,8 +1,8 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useEffect, useRef } from 'react';
 import CardProduct from '../components/Fragments/CardProduct';
 import Button from '../components/Elements/Buttons';
 import Counter from '../components/Fragments/Counter';
-import { useEffect } from 'react';
+import {} from 'react';
 
 const products = [
     {
@@ -57,6 +57,25 @@ const ProductsPage = () => {
         }
     };
 
+    // useRef
+    const cartRef = useRef(JSON.parse(localStorage.getItem('cart')) || []);
+
+    const handleAddToCartRef = (id) => {
+        cartRef.current = [...cartRef.current, { id, qty: 1 }];
+        localStorage.setItem('cart', JSON.stringify(cartRef.current));
+    };
+
+    const totalPriceRef = useRef(null);
+    //console.log(totalPriceRef);
+
+    useEffect(() => {
+        if (cart.length > 0) {
+            totalPriceRef.current.style.display = 'block';
+        } else {
+            totalPriceRef.current.style.display = 'none';
+        }
+    }, []);
+
     const handleLogout = () => {
         localStorage.removeItem('email');
         localStorage.removeItem('password');
@@ -83,7 +102,7 @@ const ProductsPage = () => {
                 </div>
                 <div className='w-2/6'>
                     <h1 className='text-3xl font-bold text-blue-600'>Cart</h1>
-                    <table className='text-left  table-auto border-separate border-spacing-x-5'>
+                    <table className='text-left table-auto border-separate border-spacing-x-5'>
                         <thead>
                             <tr>
                                 <th>Product</th>
@@ -104,7 +123,7 @@ const ProductsPage = () => {
                                     </tr>
                                 );
                             })}
-                            <tr>
+                            <tr ref={totalPriceRef}>
                                 <td colSpan={3}>
                                     <b>Total Price</b>
                                 </td>
