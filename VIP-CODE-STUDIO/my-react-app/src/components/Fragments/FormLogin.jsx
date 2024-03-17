@@ -1,29 +1,45 @@
 import { useRef } from 'react';
 import Button from '../Elements/Buttons';
 import InputForm from '../Elements/Inputs/InputForm';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { login } from '../../services/auth.service';
 
 const FormLogin = (props) => {
+    const [loginFailed, setLoginFailed] = useState('');
+
     const handleLogin = (event) => {
         event.preventDefault();
-        localStorage.setItem('email', event.target.email.value);
-        localStorage.setItem('password', event.target.password.value);
-        window.location.href = '/products';
-        console.log('Login');
+        // localStorage.setItem('email', event.target.email.value);
+        // localStorage.setItem('password', event.target.password.value);
+        // window.location.href = '/products';
+        const data = {
+            username: event.target.username.value,
+            password: event.target.password.value,
+        };
+        login(data, (status, res) => {
+            if (status) {
+                localStorage.setItem('token', res);
+                window.location.href = '/products';
+            } else {
+                setLoginFailed(res.response.data);
+                console.log(res.response.data);
+            }
+        });
     };
 
-    const emailRef = useRef(null);
+    const usernameRef = useRef(null);
     useEffect(() => {
-        emailRef.current.focus();
+        usernameRef.current.focus();
     }, []);
 
     return (
         <form onSubmit={handleLogin}>
-            <InputForm label='Email' name='email' type='email' placeholder='example@email.com' ref={emailRef}></InputForm>
+            <InputForm label='Username' name='username' type='text' placeholder='Jhon doe' ref={usernameRef}></InputForm>
             <InputForm label='Password' name='password' type='password' placeholder='********'></InputForm>
             <Button classname='bg-blue-600 w-full' type='submit'>
                 Login
             </Button>
+            {loginFailed && <p className='text-red-500 text-sm m-5 text-center'>{loginFailed}</p>}
         </form>
     );
 };
