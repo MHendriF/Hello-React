@@ -5,8 +5,6 @@ import Counter from '../components/Fragments/Counter';
 import { getProducts } from '../services/product.service';
 import { useLogin } from '../hooks/useLogin';
 
-const token = localStorage.getItem('token');
-
 const ProductsPage = () => {
     const [cart, setCart] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
@@ -78,7 +76,7 @@ const ProductsPage = () => {
                     {products.length > 0 &&
                         products.map((product) => (
                             <CardProduct key={product.id}>
-                                <CardProduct.Header image={product.image}></CardProduct.Header>
+                                <CardProduct.Header image={product.image} id={product.id}></CardProduct.Header>
                                 <CardProduct.Body title={product.title}>{product.description}</CardProduct.Body>
                                 <CardProduct.Footer price={product.price} id={product.id} handleAddToCart={handleAddToCart}></CardProduct.Footer>
                             </CardProduct>
