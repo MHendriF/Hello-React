@@ -6,7 +6,7 @@ export const login = (data, callback) => {
         .post('https://fakestoreapi.com/auth/login', data)
         .then((response) => {
             callback(true, response.data.token);
-            console.log(response);
+            //console.log(response);
         })
         .catch((error) => {
             callback(false, error);
@@ -15,7 +15,7 @@ export const login = (data, callback) => {
 
 export const getUsername = (token) => {
     const decoded = jwtDecode(token);
-    console.log(decoded);
+    //console.log(decoded);
     return decoded.user;
 };
 

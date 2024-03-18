@@ -5,7 +5,7 @@ export const getProducts = async (callback) => {
         .get('https://fakestoreapi.com/products')
         .then((response) => {
             callback(response.data);
-            console.log(response.data);
+            //console.log(response.data);
         })
         .catch((error) => {
             console.log(error);
@@ -17,7 +17,7 @@ export const getDetailProduct = async (id, callback) => {
         .get(`https://fakestoreapi.com/products/${id}`)
         .then((response) => {
             callback(response.data);
-            console.log(response.data);
+            //console.log(response.data);
         })
         .catch((error) => {
             console.log(error);
