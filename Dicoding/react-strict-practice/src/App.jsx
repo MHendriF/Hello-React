@@ -1,11 +1,16 @@
-import React from 'react';
-import Stopwatch from './components/Stopwatch';
+import React from "react";
+import Stopwatch from "./components/Stopwatch";
 
-import './styles/style.css';
+import "./styles/style.css";
 
 function App() {
   return (
-    <Stopwatch />
+    <>
+      <React.StrictMode>
+        <Stopwatch />
+      </React.StrictMode>
+      <Stopwatch color="yellow" />
+    </>
   );
 }
 
