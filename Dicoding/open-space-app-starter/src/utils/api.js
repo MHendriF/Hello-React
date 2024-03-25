@@ -1,209 +1,209 @@
 const api = (() => {
-  const BASE_URL = "https://openspace-api.netlify.app/v1";
+    const BASE_URL = 'https://openspace-api.netlify.app/v1';
 
-  async function _fetchWithAuth(url, options = {}) {
-    return fetch(url, {
-      ...options,
-      headers: {
-        ...options.headers,
-        Authorization: `Bearer ${getAccessToken()}`,
-      },
-    });
-  }
-
-  function putAccessToken(token) {
-    localStorage.setItem("accessToken", token);
-  }
-
-  function getAccessToken() {
-    return localStorage.getItem("accessToken");
-  }
-
-  async function register({ id, name, password }) {
-    const response = await fetch(`${BASE_URL}/users`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        id,
-        name,
-        password,
-      }),
-    });
-
-    const responseJson = await response.json();
-    const { status, message } = responseJson;
-
-    if (status !== "success") {
-      throw new Error(message);
+    async function _fetchWithAuth(url, options = {}) {
+        return fetch(url, {
+            ...options,
+            headers: {
+                ...options.headers,
+                Authorization: `Bearer ${getAccessToken()}`,
+            },
+        });
     }
 
-    const {
-      data: { user },
-    } = responseJson;
-
-    return user;
-  }
-
-  async function login({ id, password }) {
-    const response = await fetch(`${BASE_URL}/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        id,
-        password,
-      }),
-    });
-
-    const responseJson = await response.json();
-
-    const { status, message } = responseJson;
-
-    if (status !== "success") {
-      throw new Error(message);
+    function putAccessToken(token) {
+        localStorage.setItem('accessToken', token);
     }
 
-    const {
-      data: { token },
-    } = responseJson;
-
-    return token;
-  }
-
-  async function getOwnProfile() {
-    const response = await _fetchWithAuth(`${BASE_URL}/users/me`);
-
-    const responseJson = await response.json();
-
-    const { status, message } = responseJson;
-
-    if (status !== "success") {
-      throw new Error(message);
+    function getAccessToken() {
+        return localStorage.getItem('accessToken');
     }
 
-    const {
-      data: { user },
-    } = responseJson;
+    async function register({ id, name, password }) {
+        const response = await fetch(`${BASE_URL}/users`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id,
+                name,
+                password,
+            }),
+        });
 
-    return user;
-  }
+        const responseJson = await response.json();
+        const { status, message } = responseJson;
 
-  async function getAllUsers() {
-    const response = await fetch(`${BASE_URL}/users`);
+        if (status !== 'success') {
+            throw new Error(message);
+        }
 
-    const responseJson = await response.json();
+        const {
+            data: { user },
+        } = responseJson;
 
-    const { status, message } = responseJson;
-
-    if (status !== "success") {
-      throw new Error(message);
+        return user;
     }
 
-    const {
-      data: { users },
-    } = responseJson;
+    async function login({ id, password }) {
+        const response = await fetch(`${BASE_URL}/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id,
+                password,
+            }),
+        });
 
-    return users;
-  }
+        const responseJson = await response.json();
 
-  async function getAllTalks() {
-    const response = await fetch(`${BASE_URL}/talks`);
+        const { status, message } = responseJson;
 
-    const responseJson = await response.json();
+        if (status !== 'success') {
+            throw new Error(message);
+        }
 
-    const { status, message } = responseJson;
+        const {
+            data: { token },
+        } = responseJson;
 
-    if (status !== "success") {
-      throw new Error(message);
+        return token;
     }
 
-    const {
-      data: { talks },
-    } = responseJson;
+    async function getOwnProfile() {
+        const response = await _fetchWithAuth(`${BASE_URL}/users/me`);
 
-    return talks;
-  }
+        const responseJson = await response.json();
 
-  async function getTalkDetail(id) {
-    const response = await fetch(`${BASE_URL}/talks/${id}`);
+        const { status, message } = responseJson;
 
-    const responseJson = await response.json();
+        if (status !== 'success') {
+            throw new Error(message);
+        }
 
-    const { status, message } = responseJson;
+        const {
+            data: { user },
+        } = responseJson;
 
-    if (status !== "success") {
-      throw new Error(message);
+        return user;
     }
 
-    const {
-      data: { talkDetail },
-    } = responseJson;
+    async function getAllUsers() {
+        const response = await fetch(`${BASE_URL}/users`);
 
-    return talkDetail;
-  }
+        const responseJson = await response.json();
 
-  async function createTalk({ text, replyTo = "" }) {
-    const response = await _fetchWithAuth(`${BASE_URL}/talks`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        text,
-        replyTo,
-      }),
-    });
+        const { status, message } = responseJson;
 
-    const responseJson = await response.json();
+        if (status !== 'success') {
+            throw new Error(message);
+        }
 
-    const { status, message } = responseJson;
+        const {
+            data: { users },
+        } = responseJson;
 
-    if (status !== "success") {
-      throw new Error(message);
+        return users;
     }
 
-    const {
-      data: { talk },
-    } = responseJson;
+    async function getAllTalks() {
+        const response = await fetch(`${BASE_URL}/talks`);
 
-    return talk;
-  }
+        const responseJson = await response.json();
 
-  async function toggleLikeTalk(id) {
-    const response = await _fetchWithAuth(`${BASE_URL}/talks/likes`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        talkId: id,
-      }),
-    });
+        const { status, message } = responseJson;
 
-    const responseJson = await response.json();
+        if (status !== 'success') {
+            throw new Error(message);
+        }
 
-    const { status, message } = responseJson;
+        const {
+            data: { talks },
+        } = responseJson;
 
-    if (status !== "success") {
-      throw new Error(message);
+        return talks;
     }
-  }
 
-  return {
-    putAccessToken,
-    getAccessToken,
-    register,
-    login,
-    getOwnProfile,
-    getAllUsers,
-    getAllTalks,
-    createTalk,
-    toggleLikeTalk,
-    getTalkDetail,
-  };
+    async function getTalkDetail(id) {
+        const response = await fetch(`${BASE_URL}/talks/${id}`);
+
+        const responseJson = await response.json();
+
+        const { status, message } = responseJson;
+
+        if (status !== 'success') {
+            throw new Error(message);
+        }
+
+        const {
+            data: { talkDetail },
+        } = responseJson;
+
+        return talkDetail;
+    }
+
+    async function createTalk({ text, replyTo = '' }) {
+        const response = await _fetchWithAuth(`${BASE_URL}/talks`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                text,
+                replyTo,
+            }),
+        });
+
+        const responseJson = await response.json();
+
+        const { status, message } = responseJson;
+
+        if (status !== 'success') {
+            throw new Error(message);
+        }
+
+        const {
+            data: { talk },
+        } = responseJson;
+
+        return talk;
+    }
+
+    async function toggleLikeTalk(id) {
+        const response = await _fetchWithAuth(`${BASE_URL}/talks/likes`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                talkId: id,
+            }),
+        });
+
+        const responseJson = await response.json();
+
+        const { status, message } = responseJson;
+
+        if (status !== 'success') {
+            throw new Error(message);
+        }
+    }
+
+    return {
+        putAccessToken,
+        getAccessToken,
+        register,
+        login,
+        getOwnProfile,
+        getAllUsers,
+        getAllTalks,
+        createTalk,
+        toggleLikeTalk,
+        getTalkDetail,
+    };
 })();
 
 export default api;
