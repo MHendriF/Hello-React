@@ -1,7 +1,16 @@
-import { applyMiddleware, createStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import { todoDeletionCheck, thunk } from './middlewares';
-import rootReducer from './rootReducer';
+import { todosReducer } from './todos/reducer';
+import { goalsReducer } from './goals/reducer';
 
-const store = createStore(rootReducer, applyMiddleware(thunk, todoDeletionCheck));
+const store = configureStore({
+    reducer: {
+        todos: todosReducer,
+        goals: goalsReducer,
+    },
+    middleware: () => {
+        return [todoDeletionCheck, thunk];
+    },
+});
 
 export { store };

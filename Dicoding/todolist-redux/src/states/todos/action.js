@@ -64,6 +64,16 @@ function asyncToggleTodo(id) {
     return async (dispatch) => {
         await mockAPI.toggleTodo(id);
         dispatch(toggleTodoActionCreator(id));
+        try {
+            await mockAPI.toggleTodo(id);
+        } catch (error) {
+            alert(error.message);
+
+            // rollback state change with re-toggling the to-do item.
+            dispatch(toggleTodoActionCreator(id));
+
+            // ... you can also do crash reporting.
+        }
     };
 }
 
