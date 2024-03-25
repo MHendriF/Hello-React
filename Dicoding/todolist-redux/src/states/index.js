@@ -1,4 +1,4 @@
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, createStore } from '@reduxjs/toolkit';
 import { todoDeletionCheck } from './middlewares';
 import rootReducer from './rootReducer';
 
