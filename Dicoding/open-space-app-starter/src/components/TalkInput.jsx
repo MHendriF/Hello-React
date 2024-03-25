@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 function TalkInput({ addTalk }) {
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
 
   function addtalk() {
     if (text.trim()) {
       addTalk(text);
-      setText('');
+      setText("");
     }
   }
 
@@ -19,12 +19,19 @@ function TalkInput({ addTalk }) {
 
   return (
     <div className="talk-input">
-      <textarea type="text" placeholder="What are you thinking?" value={text} onChange={handleTextChange} />
+      <textarea
+        type="text"
+        placeholder="What are you thinking?"
+        value={text}
+        onChange={handleTextChange}
+      />
       <p className="talk-input__char-left">
         <strong>{text.length}</strong>
         /320
       </p>
-      <button type="submit" onClick={addtalk}>Talk</button>
+      <button type="submit" onClick={addtalk}>
+        Talk
+      </button>
     </div>
   );
 }
