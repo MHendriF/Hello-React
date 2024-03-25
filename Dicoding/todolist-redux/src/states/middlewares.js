@@ -24,4 +24,4 @@ function thunk(store) {
     };
 }
 
-export { todoDeletionCheck };
+export { todoDeletionCheck, thunk };
