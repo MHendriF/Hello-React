@@ -1,21 +1,20 @@
 function addGoalActionCreator({ id, text }) {
     return {
-      type: 'ADD_GOAL',
-      payload: {
-        id,
-        text
-      }
+        type: 'ADD_GOAL',
+        payload: {
+            id,
+            text,
+        },
     };
-  }
-  
-  function deleteGoalActionCreator(id) {
+}
+
+function deleteGoalActionCreator(id) {
     return {
-      type: 'DELETE_GOAL',
-      payload: {
-        id
-      }
+        type: 'DELETE_GOAL',
+        payload: {
+            id,
+        },
     };
-  }
-  
-  export { addGoalActionCreator, deleteGoalActionCreator };
-  
+}
+
+export { addGoalActionCreator, deleteGoalActionCreator };
