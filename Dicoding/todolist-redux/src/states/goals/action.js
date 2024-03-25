@@ -1,6 +1,8 @@
+import { ActionType } from '../utils';
+
 function addGoalActionCreator({ id, text }) {
     return {
-        type: 'ADD_GOAL',
+        type: ActionType.ADD_GOAL,
         payload: {
             id,
             text,
@@ -10,7 +12,7 @@ function addGoalActionCreator({ id, text }) {
 
 function deleteGoalActionCreator(id) {
     return {
-        type: 'DELETE_GOAL',
+        type: ActionType.DELETE_GOAL,
         payload: {
             id,
         },

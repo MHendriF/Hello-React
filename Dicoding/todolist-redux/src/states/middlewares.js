@@ -1,6 +1,8 @@
+import { ActionType } from './utils';
+
 function todoDeletionCheck(store) {
     return (next) => (action) => {
-        if (action.type === 'DELETE_TODO') {
+        if (action.type === ActionType.DELETE_TODO) {
             const { todos } = store.getState();
             const todosToBeDeleted = todos.find((todo) => todo.id === action.payload.id);
 

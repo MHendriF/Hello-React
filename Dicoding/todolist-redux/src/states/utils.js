@@ -1,0 +1,12 @@
+const ActionType = {
+    ADD_TODO: 'ADD_TODO',
+    TOGGLE_TODO: 'TOGGLE_TODO',
+    RECEIVE_TODO: 'RECEIVE_TODO',
+    DELETE_TODO: 'DELETE_TODO',
+    ADD_GOAL: 'ADD_GOAL',
+    RECEIVE_GOAL: 'RECEIVE_GOAL',
+    DELETE_GOAL: 'DELETE_GOAL',
+    TOGGLE_GOAL: 'TOGGLE_GOAL',
+};
+
+export { ActionType };

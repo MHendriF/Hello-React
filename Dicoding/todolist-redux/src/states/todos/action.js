@@ -1,8 +1,9 @@
 import mockAPI from '../../data/mockAPI';
+import { ActionType } from '../utils';
 
 function addTodoActionCreator({ text }) {
     return {
-        type: 'ADD_TODO',
+        type: ActionType.ADD_TODO,
         payload: {
             id: `todo-${+new Date()}`,
             text,
@@ -13,7 +14,7 @@ function addTodoActionCreator({ text }) {
 
 function deleteTodoActionCreator(id) {
     return {
-        type: 'DELETE_TODO',
+        type: ActionType.DELETE_TODO,
         payload: {
             id,
         },
@@ -22,7 +23,7 @@ function deleteTodoActionCreator(id) {
 
 function toggleTodoActionCreator(id) {
     return {
-        type: 'TOGGLE_TODO',
+        type: ActionType.TOGGLE_TODO,
         payload: {
             id,
         },
@@ -31,7 +32,7 @@ function toggleTodoActionCreator(id) {
 
 function receiveTodosActionCreator(todos) {
     return {
-        type: 'RECEIVE_TODOS',
+        type: ActionType.RECEIVE_TODO,
         payload: {
             todos,
         },
