@@ -3,6 +3,7 @@
  */
 import ActionType from '../../utils/actionType';
 import api from '../../utils/api';
+import { setAuthUserActionCreator } from '../../states/authUser/action';
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
 
 function setIsPreloadActionCreator(isPreload) {
