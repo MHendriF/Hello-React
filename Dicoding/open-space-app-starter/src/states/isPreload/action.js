@@ -2,6 +2,7 @@
  * @TODO: Define all the actions (creator) for the isPreLoad state
  */
 import ActionType from '../../utils/actionType';
+import api from '../../utils/api';
 
 function setIsPreloadActionCreator(isPreload) {
     return {
@@ -28,4 +29,4 @@ function asyncPreloadProcess() {
     };
 }
 
-export { ActionType, setIsPreloadActionCreator, asyncPreloadProcess };
+export { setIsPreloadActionCreator, asyncPreloadProcess };
