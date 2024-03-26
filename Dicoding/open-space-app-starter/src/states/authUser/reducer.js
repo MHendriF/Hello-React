@@ -1,6 +1,8 @@
 /**
  * @TODO: Define the reducer for the authUser state
  */
+import ActionType from '../../utils/actionType';
+
 function authUserReducer(authUser = null, action = {}) {
     switch (action.type) {
         case ActionType.SET_AUTH_USER:
