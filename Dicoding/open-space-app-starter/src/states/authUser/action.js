@@ -35,3 +35,12 @@ function asyncSetAuthUser({ id, password }) {
         }
     };
 }
+
+function asyncUnsetAuthUser() {
+    return (dispatch) => {
+        dispatch(unsetAuthUserActionCreator());
+        api.putAccessToken('');
+    };
+}
+
+export { ActionType, setAuthUserActionCreator, unsetAuthUserActionCreator, asyncSetAuthUser, asyncUnsetAuthUser };
