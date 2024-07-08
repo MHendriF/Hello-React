@@ -30,7 +30,7 @@ function asyncSetAuthUser({ id, password }) {
             const token = await api.login({ id, password });
             api.putAccessToken(token);
             const authUser = await api.getOwnProfile();
-
+            console.log(authUser);
             dispatch(setAuthUserActionCreator(authUser));
         } catch (error) {
             alert(error.message);

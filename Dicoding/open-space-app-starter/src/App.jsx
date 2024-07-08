@@ -18,6 +18,7 @@ function App() {
     useEffect(() => {
         // @TODO: dispatch async action to preload app
         dispatch(asyncPreloadProcess());
+        console.log('isPreload: ', isPreload);
     }, [dispatch]);
 
     const onSignOut = () => {

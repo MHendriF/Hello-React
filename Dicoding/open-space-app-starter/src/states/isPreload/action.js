@@ -24,9 +24,11 @@ function asyncPreloadProcess() {
             dispatch(setAuthUserActionCreator(authUser));
         } catch (error) {
             // fallback process
+            console.log(error);
             dispatch(setAuthUserActionCreator(null));
         } finally {
             // end preload process
+            console.log('setIsPreloadActionCreator: ', false);
             dispatch(setIsPreloadActionCreator(false));
         }
         dispatch(hideLoading());
