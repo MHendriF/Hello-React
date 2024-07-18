@@ -6,11 +6,13 @@ import RootLayout from "../layouts/RootLayout";
 import BlogPage from "../pages/blogs/Index";
 import DetailBlogPage from "../pages/blogs/_id";
 import { postById, posts } from "../apis/loaders";
+import ErrorPage from "../components/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
