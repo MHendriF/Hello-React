@@ -13,14 +13,11 @@ export default function Search(props) {
     }
   };
 
-  const handleClick = () => {
-    onSearchChange();
-  };
-
   return (
     <>
       <div>
-        Cari Article: <input onChange={(e) => setSearch(e.target.value)} onKeyDown={searchKeyDown} type="text" />
+        Cari Article:{" "}
+        <input onChange={(e) => setSearch(e.target.value)} onKeyDown={(e) => searchKeyDown(e)} type="text" />
         <button onClick={onSearchChange}>Cari</button>
       </div>
       <small>
