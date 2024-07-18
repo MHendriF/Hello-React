@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+
+type PostProps = {
+  id: string;
+  title: string;
+  body: string;
+};
 
 export default function BlogPage() {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => response.json())
-      .then((json) => setPosts(json));
-  }, []);
+  const posts = useLoaderData() as PostProps[];
 
   return (
     <div>
