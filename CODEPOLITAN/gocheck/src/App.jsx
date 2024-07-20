@@ -30,7 +30,7 @@ function App() {
   }
 
   function handleClearItems() {
-    const confirm = window.confirm("Are you sure you want to clear the list?");
+    const confirm = window.confirm("Are you sure you want to clear all items?");
     if (confirm) {
       setListItems([]);
     }

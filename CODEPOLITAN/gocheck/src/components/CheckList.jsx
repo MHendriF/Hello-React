@@ -31,7 +31,7 @@ export default function CheckList({ items, onDeleteItem, onToggleItem, onClearIt
           <option value="title">Urutkan berdasarkan judul</option>
           <option value="status">Urutkan berdasarkan status</option>
         </select>
-        <button onClick={onClearItems}>Hapus</button>
+        <button onClick={onClearItems}>Hapus semua</button>
       </div>
     </div>
   );
