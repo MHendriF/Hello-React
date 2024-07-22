@@ -4,6 +4,8 @@ import Form from "./components/Form";
 import CheckList from "./components/CheckList";
 import Stats from "./components/Stats";
 import ColorGenerator from "./components/ColorGenerator";
+import Accordion from "./components/Accordion";
+import { faqs } from "./constants/data";
 
 function App() {
   const [listItems, setListItems] = useState([]);
@@ -49,6 +51,7 @@ function App() {
       />
       <Stats items={listItems} />
       <ColorGenerator />
+      <Accordion data={faqs} />
     </div>
   );
 }
