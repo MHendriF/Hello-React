@@ -9,7 +9,7 @@ export default function Form({ onAddItem }) {
     if (!title) return;
 
     const newItem = {
-      id: Date.now(),
+      id: `note-${Date.now()}`,
       title,
       done: false,
     };

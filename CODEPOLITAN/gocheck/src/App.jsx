@@ -3,6 +3,7 @@ import Logo from "./components/Logo";
 import Form from "./components/Form";
 import CheckList from "./components/CheckList";
 import Stats from "./components/Stats";
+import ColorGenerator from "./components/ColorGenerator";
 
 function App() {
   const [listItems, setListItems] = useState([]);
@@ -47,6 +48,7 @@ function App() {
         onClearItems={handleClearItems}
       />
       <Stats items={listItems} />
+      <ColorGenerator />
     </div>
   );
 }

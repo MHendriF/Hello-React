@@ -25,6 +25,11 @@ body {
   grid-template-rows: auto auto 1fr auto;
 }
 
+.app-generator {
+  text-align: center;
+  padding-top: 5rem;
+}
+
 .logo {
   text-align: center;
   background-color: #6096b4;
@@ -129,3 +134,29 @@ input[type="checkbox"] {
   font-weight: 700;
   padding: 3.2rem 0;
 }
+
+input[type="color"] {
+  margin-bottom: 2rem;
+}
+
+.color-box {
+  width: 200px;
+  height: 200px;
+  margin: 2rem auto;
+}
+
+input[type="range"] {
+  width: 300px;
+  margin-bottom: 2rem;
+}
+
+.color-info {
+  margin-top: 1rem;
+  font-size: 1.6rem;
+}
+
+.bg-color-generator {
+  background-color: #f5efe7;
+  color: #5a3e2b;
+}
+
