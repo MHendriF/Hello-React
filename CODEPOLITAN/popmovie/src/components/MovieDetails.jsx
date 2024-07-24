@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import StarRating from "./StarRating";
 import Loader from "./Loader";
+import { API_KEY } from "../constants/data";
 
 export default function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
   const [movie, setMovie] = useState({});
@@ -11,10 +12,10 @@ export default function MovieDetails({ selectedId, onCloseMovie, onAddWatched, w
   const userRatingWatched = watched.find((movie) => movie.imdbID === selectedId)?.userRating;
 
   const {
-    Title: title,
-    Year: year,
+    Title: Title,
+    Year: Year,
     Released: released,
-    Poster: poster,
+    Poster: Poster,
     imdbRating,
     Runtime: runtime,
     Plot: plot,
@@ -26,13 +27,14 @@ export default function MovieDetails({ selectedId, onCloseMovie, onAddWatched, w
   function handleAddWatched() {
     const newWatchedMovie = {
       imdbID: selectedId,
-      title,
-      year,
-      poster,
+      Title,
+      Year,
+      Poster,
       imdbRating: Number(imdbRating),
       runtime: Number(runtime.split(" ").at(0)),
       userRating: Number(userRating),
     };
+    console.log("🚀 ~ handleAddWatched ~ newWatchedMovie:", newWatchedMovie);
     onAddWatched(newWatchedMovie);
     onCloseMovie();
   }
@@ -42,6 +44,7 @@ export default function MovieDetails({ selectedId, onCloseMovie, onAddWatched, w
       setIsLoading(true);
       const response = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&i=${selectedId}`);
       const data = await response.json();
+      console.log("🚀 ~ getMovieDetails ~ data:", data);
       setMovie(data);
       setIsLoading(false);
     }
@@ -50,14 +53,14 @@ export default function MovieDetails({ selectedId, onCloseMovie, onAddWatched, w
   }, [selectedId]);
 
   useEffect(() => {
-    if (!title) return;
-    document.title = `PopMovie | ${title}`;
+    if (!Title) return;
+    document.Title = `PopMovie | ${Title}`;
 
     return function () {
-      document.title = "PopMovie";
-      console.log(`clean up movie details ${title}`);
+      document.Title = "PopMovie";
+      console.log(`clean up movie details ${Title}`);
     };
-  }, [title]);
+  }, [Title]);
 
   return (
     <div className="details">
@@ -69,9 +72,9 @@ export default function MovieDetails({ selectedId, onCloseMovie, onAddWatched, w
             <button className="btn-back" onClick={onCloseMovie}>
               &#x2715;
             </button>
-            <img src={poster} alt={`${title} poster`} />
+            <img src={Poster} alt={`${Title} Poster`} />
             <div className="details-overview">
-              <h2>{title}</h2>
+              <h2>{Title}</h2>
               <p>
                 <span>📅</span>
                 <span>{released}</span>

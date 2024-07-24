@@ -12,11 +12,11 @@ import ErrorMessage from "./components/ErrorMessage";
 import MovieDetails from "./components/MovieDetails";
 import WatchedSummary from "./components/WatchedSummary";
 import WatchedList from "./components/WatchedList";
-import { API_KEY } from "./constants/data";
+import { API_KEY, tempWatchedData } from "./constants/data";
 
 function App() {
   const [movies, setMovies] = useState([]);
-  const [watched, setWatched] = useState([]);
+  const [watched, setWatched] = useState(tempWatchedData);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState("");
   const [query, setQuery] = useState("oppenheimer");
@@ -26,7 +26,13 @@ function App() {
     setWatched((watched) => [...watched, movie]);
   }
 
+  function handleDeleteWatchedMovie(id) {
+    setWatched((watched) => watched.filter((movie) => movie.imdbID !== id));
+    console.log("🚀 ~ handleDeleteWatchedMovie ~ :", id);
+  }
+
   function handleSelectMovie(id) {
+    console.log("🚀 ~ handleSelectMovie ~ :", id);
     setSelectedId((selectedId) => (selectedId === id ? null : id));
   }
 
@@ -46,6 +52,7 @@ function App() {
         }
 
         const data = await response.json();
+        console.log("🚀 ~ fetchMovies ~ d:", data);
 
         if (data.Response === "False") {
           throw new Error(data.Error);
@@ -102,7 +109,7 @@ function App() {
           ) : (
             <>
               <WatchedSummary watched={watched} />
-              <WatchedList watched={watched} />{" "}
+              <WatchedList watched={watched} onDeleteWatched={handleDeleteWatchedMovie} />{" "}
             </>
           )}
         </BoxMovies>
