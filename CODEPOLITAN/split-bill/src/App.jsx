@@ -41,7 +41,9 @@ function App() {
           {showAddFriend ? "Hide Add Friend" : "Add Friend"}
         </button>
       </div>
-      {selectedFriend && <FormSplitBill selectedFriend={selectedFriend} onSplitBill={handleSpiltBill} />}
+      {selectedFriend && (
+        <FormSplitBill selectedFriend={selectedFriend} onSplitBill={handleSpiltBill} key={selectedFriend.id} />
+      )}
     </div>
   );
 }
