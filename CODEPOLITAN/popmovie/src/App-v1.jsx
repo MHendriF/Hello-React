@@ -28,11 +28,9 @@ function App() {
 
   function handleDeleteWatchedMovie(id) {
     setWatched((watched) => watched.filter((movie) => movie.imdbID !== id));
-    console.log("🚀 ~ handleDeleteWatchedMovie ~ :", id);
   }
 
   function handleSelectMovie(id) {
-    console.log("🚀 ~ handleSelectMovie ~ :", id);
     setSelectedId((selectedId) => (selectedId === id ? null : id));
   }
 
@@ -58,11 +56,8 @@ function App() {
           throw new Error(data.Error);
         }
 
-        console.log(data.Search);
-
         setMovies(data.Search);
       } catch (e) {
-        console.error(e);
         setIsError(e.message);
       } finally {
         setIsLoading(false);
@@ -77,13 +72,6 @@ function App() {
 
     fetchMovies();
   }, [query]);
-
-  // fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=oppenheimer`)
-  //   .then((res) => res.json())
-  //   .then((data) => console.log(data.Search));
-  // .then((data) => setMovies(data.Search));
-
-  // setWatched([]);
 
   return (
     <>

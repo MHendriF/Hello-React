@@ -34,7 +34,6 @@ export default function MovieDetails({ selectedId, onCloseMovie, onAddWatched, w
       runtime: Number(runtime.split(" ").at(0)),
       userRating: Number(userRating),
     };
-    console.log("🚀 ~ handleAddWatched ~ newWatchedMovie:", newWatchedMovie);
     onAddWatched(newWatchedMovie);
     onCloseMovie();
   }

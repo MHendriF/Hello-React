@@ -1,5 +1,4 @@
 export default function WatchedItem({ movie, onDeleteWatched }) {
-  console.log("🚀 ~ WatchedItem ~ movie:", movie);
   return (
     <li key={movie.imdbID}>
       <img src={movie.Poster} alt={`${movie.Title} poster`} />
