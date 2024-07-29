@@ -53,10 +53,10 @@ export default function MovieDetails({ selectedId, onCloseMovie, onAddWatched, w
 
   useEffect(() => {
     if (!Title) return;
-    document.Title = `PopMovie | ${Title}`;
+    document.title = `PopMovie | ${Title}`;
 
     return function () {
-      document.Title = "PopMovie";
+      document.title = "PopMovie";
       console.log(`clean up movie details ${Title}`);
     };
   }, [Title]);

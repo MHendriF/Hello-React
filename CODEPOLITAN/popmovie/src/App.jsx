@@ -43,7 +43,7 @@ function App() {
       try {
         setIsLoading(true);
         setIsError("");
-        const response = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${query}`);
+        const response = await fetch(`https://www.omdbapi.com/?s=${query}&apikey=${API_KEY}`);
 
         if (!response.ok) {
           throw new Error(response.statusText);

@@ -54,7 +54,7 @@ body {
   max-width: 42rem;
   background-color: var(--color-background-500);
   border-radius: 0.9rem;
-  overflow: hidden;
+  overflow: auto;
   position: relative;
 }
 
@@ -363,6 +363,7 @@ body {
     width: 100%;
   }
 }
+
 /*
   SPACING SYSTEM (px)
   2 / 4 / 8 / 12 / 16 / 24 / 32 / 40 / 48 / 64 / 80 / 96 / 128
@@ -403,4 +404,3 @@ body {
   </svg>
   
   */
-
