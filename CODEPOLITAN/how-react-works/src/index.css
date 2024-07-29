@@ -1,68 +1,104 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-family: sans-serif;
+  margin: 48px 96px;
+  position: relative;
+  color: #444;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  color: inherit;
   font-family: inherit;
-  background-color: #1a1a1a;
+  border: none;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.toggle {
+  position: absolute;
+  right: 0;
+  background: none;
+  font-size: 30px;
+  padding: 4px;
+}
+
+.tabs {
+  margin-bottom: 8px;
+}
+
+.tab {
+  border-radius: 12px;
+  background-color: #edf2ff;
+  padding: 12px 24px;
+  margin-right: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #364fc7;
+  transition: all 0.3s;
+}
+
+.tab.active,
+.tab:hover {
+  background-color: #364fc7;
+  color: #fff;
+}
+
+.tab-content {
+  background-color: #edf2ff;
+  padding: 32px;
+  border-radius: 12px;
+}
+
+.tab-content h4 {
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: #364fc7;
+}
+
+.tab-content p {
+  font-size: 18px;
+}
+
+.tab-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+.tab-actions > button {
+  background: none;
+  text-decoration: underline;
+  color: #4c6ef5;
+  font-size: 14px;
+}
+
+.hearts-counter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hearts-counter button {
+  background-color: #8f9ca5;
+  padding: 4px 6px;
+  border-radius: 4px;
+  color: #fff;
+  line-height: 1;
+}
+
+.tab-undo {
+  display: flex;
+  gap: 8px;
+}
+
+.tab-undo button {
+  background-color: #364fc7;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
 }
