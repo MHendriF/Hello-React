@@ -1,0 +1,17 @@
+{
+  "name": "triangle-unit-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "vitest --no-watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "vitest": "^2.0.5"
+  }
+}
+
