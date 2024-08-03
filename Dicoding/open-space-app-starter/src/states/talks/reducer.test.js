@@ -16,8 +16,10 @@ describe('talkReducers function', () => {
         // arrange
         const initialState = [];
         const action = { type: 'UNKNOWN' };
+
         // action
         const nextState = talksReducer(initialState, action);
+
         // assert
         expect(nextState).toEqual(initialState);
     });
@@ -68,6 +70,7 @@ describe('talkReducers function', () => {
                 createdAt: '2022-09-22T10:06:55.588Z',
             },
         ];
+
         const action = {
             type: 'ADD_TALK',
             payload: {
@@ -81,8 +84,10 @@ describe('talkReducers function', () => {
                 },
             },
         };
+
         // action
         const nextState = talksReducer(initialState, action);
+
         // assert
         expect(nextState).toEqual([action.payload.talk, ...initialState]);
     });
@@ -99,6 +104,7 @@ describe('talkReducers function', () => {
                 createdAt: '2022-09-22T10:06:55.588Z',
             },
         ];
+
         const action = {
             type: 'TOGGLE_LIKE_TALK',
             payload: {
@@ -106,8 +112,10 @@ describe('talkReducers function', () => {
                 userId: 'user-1',
             },
         };
+
         // action: like talk
         const nextState = talksReducer(initialState, action);
+
         // assert
         expect(nextState).toEqual([
             {
@@ -115,8 +123,10 @@ describe('talkReducers function', () => {
                 likes: [action.payload.userId],
             },
         ]);
+
         // action: unlike talk
         const nextState2 = talksReducer(nextState, action);
+
         // assert
         expect(nextState2).toEqual(initialState);
     });

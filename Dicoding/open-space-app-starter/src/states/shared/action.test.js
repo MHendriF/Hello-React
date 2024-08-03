@@ -34,6 +34,8 @@ const fakeUsersResponse = [
 
 const fakeErrorResponse = new Error('Ups, something went wrong');
 
+// ... kode fake data
+
 describe('asyncPopulateUsersAndTalks thunk', () => {
     beforeEach(() => {
         api._getAllUsers = api.getAllUsers;
@@ -48,6 +50,8 @@ describe('asyncPopulateUsersAndTalks thunk', () => {
         delete api._getAllUsers;
         delete api._getAllTalks;
     });
+
+    // ... backup and restore
 
     it('should dispatch action correctly when data fetching success', async () => {
         // arrange

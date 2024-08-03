@@ -6,7 +6,6 @@ import ActionType from '../../utils/actionType';
 function talksReducer(talks = [], action = {}) {
     switch (action.type) {
         case ActionType.RECEIVE_TALKS:
-            console.log('action.payload.talks : ', action.payload.talks);
             return action.payload.talks;
         case ActionType.ADD_TALK:
             return [action.payload.talk, ...talks];
